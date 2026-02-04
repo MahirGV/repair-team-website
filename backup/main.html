@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" href="images/logo-transparent-V2.png">
   <title>Repair Team</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css">
@@ -11,7 +12,7 @@
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
-        <img class="brand__logo" src="logo-transparent-V2.png" alt="RT Repair Team">
+        <img class="brand__logo" src="images/logo-transparent-V2.png" alt="RT Repair Team">
         <div class="brand__text">
           <span class="brand__title">Repair</span>
           <span class="brand__sub">Team</span>
@@ -27,10 +28,27 @@
           <span class="nav__dot"></span>
           <span>1. Haqqımızda</span>
         </button>
-        <button class="nav__link" data-page="projects">
-          <span class="nav__dot"></span>
-          <span>2. Servis göstərdiyimiz avadanlıqlar</span>
-        </button>
+        <div class="nav__group">
+          <button class="nav__link" data-page="projects">
+            <span class="nav__dot"></span>
+            <span>2. Servis göstərdiyimiz avadanlıqlar</span>
+          </button>
+          <div class="nav__sub">
+            <button class="nav__sublink" data-page="fridge">Soyuducu</button>
+            <button class="nav__sublink" data-page="oven">Soba</button>
+            <div class="nav__subgroup">
+              <button class="nav__sublink" data-page="helper">Köməkçi avadanlıqlar</button>
+              <div class="nav__subsub">
+                <button class="nav__sublink" data-page="helper-prep">Hazırlıq avadanlıqları</button>
+                <button class="nav__sublink" data-page="helper-fastfood">Fastfood avadanlıqları</button>
+                <button class="nav__sublink" data-page="helper-dough">Xəmir hazırlama avadanlıqları</button>
+              </div>
+            </div>
+            <button class="nav__sublink" data-page="service-line">Servis xətti</button>
+            <button class="nav__sublink" data-page="laundry">Qabyuyan</button>
+            <button class="nav__sublink" data-page="cookers">Bişiricilər</button>
+          </div>
+        </div>
         <button class="nav__link" data-page="calendar">
           <span class="nav__dot"></span>
           <span>3. Qiymətləndirmə</span>
@@ -50,15 +68,15 @@
           <p class="contact__title">Əlaqə</p>
           <div class="contact__item">
             <span class="contact__label">WP</span>
-            <span class="contact__value">+994 50 123 45 67</span>
+            <span class="contact__value">+994 70 307 49 07</span>
           </div>
           <div class="contact__item">
             <span class="contact__label">Telefon</span>
-            <span class="contact__value">+994 12 555 12 12</span>
+            <span class="contact__value">+994 50 307 49 07</span>
           </div>
           <div class="contact__item">
             <span class="contact__label">Mail</span>
-            <span class="contact__value">office@example.com</span>
+            <span class="contact__value">repairteama@gmail.com</span>
           </div>
         </div>
       </div>
@@ -67,6 +85,7 @@
     <main class="content">
       <header class="topbar">
         <div>
+          <button class="page-back" id="page-back" type="button" data-page="projects" aria-hidden="true">← Geri</button>
           <p class="eyebrow" id="page-eyebrow">Haqqında</p>
           <h1 id="page-title">Haqqımızda</h1>
         </div>
@@ -112,48 +131,227 @@
       </section>
 
       <section class="page" id="projects" aria-labelledby="projects-title" data-eyebrow="Servis" data-title="Servis göstərdiyimiz avadanlıqlar">
-        <div class="page__grid">
+        <div class="page__grid service-grid">
           <div class="card service-card" data-page="fridge" role="button" tabindex="0" aria-label="Soyuducu haqqında">
-            <h2 id="projects-title">Soyuducu</h2>
-            <p class="muted">Kliklə və ətraflı məlumata keç.</p>
-            <div class="service-card__title">Soyuducu</div>
-            <div class="service-card__meta">Məişət və sənaye tipli soyutma sistemləri</div>
+            <img class="service-card__image" src="images/soyuducu.png" alt="Soyuducu">
+            <div class="service-card__body">
+              <h2 id="projects-title">Soyuducular</h2>
+              <div class="service-card__meta">Məişət və sənaye tipli soyutma sistemləri</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
           </div>
           <div class="card service-card" data-page="oven" role="button" tabindex="0" aria-label="Soba haqqında">
-            <h3>Soba</h3>
-            <p class="muted">Kliklə və ətraflı məlumata keç.</p>
-            <div class="service-card__title">Soba</div>
-            <div class="service-card__meta">Qaz və elektrik soba modelləri</div>
+            <img class="service-card__image" src="images/soba.png" alt="Soba">
+            <div class="service-card__body">
+              <h3>Sobalar</h3>
+              <div class="service-card__meta">Qaz və elektrik soba modelləri</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
+          </div>
+          <div class="card service-card" data-page="helper" role="button" tabindex="0" aria-label="Köməkçi avadanlıqlar haqqında">
+            <img class="service-card__image service-card__image--contain" src="images/komekci-avadanliqlar.png" alt="Köməkçi avadanlıqlar">
+            <div class="service-card__body">
+              <h3>Köməkçi avadanlıqlar</h3>
+              <div class="service-card__meta">Gündəlik məişət cihazları</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
+          </div>
+          <div class="card service-card" data-page="service-line" role="button" tabindex="0" aria-label="Servis xətti haqqında">
+            <img class="service-card__image" src="images/servis-xetti.png" alt="Servis xətti">
+            <div class="service-card__body">
+              <h3>Servis xətti</h3>
+              <div class="service-card__meta">Diaqnostika, təmir, quraşdırma</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
+          </div>
+          <div class="card service-card" data-page="laundry" role="button" tabindex="0" aria-label="Yuma və qabyuyan maşınlar haqqında">
+            <img class="service-card__image service-card__image--contain" src="images/qabyuyan.png" alt="Qabyuyan">
+            <div class="service-card__body">
+              <h3>Yuma Dəzgahları və qabyuyan maşınlar</h3>
+              <div class="service-card__meta">Dəzgahlar və qabyuyan sistemlər</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
+          </div>
+          <div class="card service-card" data-page="cookers" role="button" tabindex="0" aria-label="Bişiricilər haqqında">
+            <img class="service-card__image" src="images/bisiriciler.png" alt="Bişiricilər">
+            <div class="service-card__body">
+              <h3>Bişiricilər</h3>
+              <div class="service-card__meta">Kiçik mətbəx cihazları</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="page" id="fridge" aria-labelledby="fridge-title" data-eyebrow="Ətraflı" data-title="Soyuducu">
+      <section class="page" id="fridge" aria-labelledby="fridge-title" data-eyebrow="Ətraflı" data-title="Soyuducu servisi" data-back="projects">
         <div class="page__grid">
           <div class="card highlight">
-            <h2 id="fridge-title">Soyuducu servisi</h2>
-            <p>Servis xidməti: diaqnostika, freon doldurma, kompressor və elektron lövhə təmiri.</p>
+            <h2 id="fridge-title" class="visually-hidden">Soyuducu servisi</h2>
+            <p class="visually-hidden">Servis xidməti: diaqnostika, freon doldurma, kompressor və elektron lövhə təmiri.</p>
+            <div class="service-items">
+              <span>Single‑door</span>
+              <span>Double‑door</span>
+              <span>No‑Frost</span>
+              <span>Side‑by‑Side</span>
+              <span>Vitirin tipli</span>
+              <span>İnteqrasiya</span>
+            </div>
             <ul class="list">
               <li><span>Yerində baxış</span><span>30 dəq</span></li>
               <li><span>Ehtiyat hissə</span><span>Orijinal</span></li>
               <li><span>Zəmanət</span><span>6 ay</span></li>
             </ul>
-            <button class="pill" data-page="projects">Geri qayıt</button>
           </div>
         </div>
       </section>
 
-      <section class="page" id="oven" aria-labelledby="oven-title" data-eyebrow="Ətraflı" data-title="Soba">
+      <section class="page" id="oven" aria-labelledby="oven-title" data-eyebrow="Ətraflı" data-title="Soba servisi" data-back="projects">
         <div class="page__grid">
           <div class="card highlight">
-            <h2 id="oven-title">Soba servisi</h2>
-            <p>Servis xidməti: alov sistemi, termostat, sensor və elektrik xətti yoxlanışı.</p>
+            <h2 id="oven-title" class="visually-hidden">Soba servisi</h2>
+            <p class="visually-hidden">Servis xidməti: termostat, sensor və elektrik xətti yoxlanışı.</p>
+            <div class="service-items">
+              <span>Qaz sobası</span>
+              <span>Elektrik sobası</span>
+              <span>Mini soba</span>
+              <span>İnteqrasiya soba</span>
+              <span>Konveksiya</span>
+              <span>İkili kamera</span>
+            </div>
             <ul class="list">
               <li><span>Yerində baxış</span><span>30 dəq</span></li>
               <li><span>Təhlükəsizlik</span><span>Testlə</span></li>
               <li><span>Zəmanət</span><span>6 ay</span></li>
             </ul>
-            <button class="pill" data-page="projects">Geri qayıt</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="helper" aria-labelledby="helper-title" data-eyebrow="Ətraflı" data-title="Köməkçi avadanlıqlar servisi" data-back="projects">
+        <div class="page__grid service-grid">
+          <div class="card service-card" data-page="helper-prep" role="button" tabindex="0" aria-label="Hazırlıq avadanlıqları">
+            <img class="service-card__image service-card__image--contain" src="images/Hazirliq-avadanliqlari.png" alt="Hazırlıq avadanlıqları">
+            <div class="service-card__body">
+              <h3 id="helper-title">Hazırlıq avadanlıqları</h3>
+              <div class="service-card__meta">Doğrama və qarışdırma cihazları</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
+          </div>
+          <div class="card service-card" data-page="helper-fastfood" role="button" tabindex="0" aria-label="Fastfood avadanlıqları">
+            <img class="service-card__image service-card__image--contain" src="images/Fast-food-avadanliqlari.png" alt="Fastfood avadanlıqları">
+            <div class="service-card__body">
+              <h3>Fastfood avadanlıqları</h3>
+              <div class="service-card__meta">Sürətli hazırlıq cihazları</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
+          </div>
+          <div class="card service-card" data-page="helper-dough" role="button" tabindex="0" aria-label="Xəmir hazırlama avadanlıqları">
+            <img class="service-card__image service-card__image--contain" src="images/Xemir-hazirlama-avadanliqlari.png" alt="Xəmir hazırlama avadanlıqları">
+            <div class="service-card__body">
+              <h3>Xəmir hazırlama avadanlıqları</h3>
+              <div class="service-card__meta">Xəmir yoğurma və açma</div>
+              <p class="muted">Kliklə və ətraflı məlumata keç.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="helper-prep" aria-labelledby="helper-prep-title" data-eyebrow="Ətraflı" data-title="Hazırlıq avadanlıqları servisi" data-back="helper">
+        <div class="page__grid">
+          <div class="card highlight">
+            <h2 id="helper-prep-title" class="visually-hidden">Hazırlıq avadanlıqları</h2>
+            <p class="visually-hidden">Doğrama və qarışdırma cihazları.</p>
+            <div class="item-grid">
+              <div class="item-card">Blender</div>
+              <div class="item-card">Mikser</div>
+              <div class="item-card">Doğrayıcı</div>
+              <div class="item-card">Şirəçəkən</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="helper-fastfood" aria-labelledby="helper-fastfood-title" data-eyebrow="Ətraflı" data-title="Fastfood avadanlıqları servisi" data-back="helper">
+        <div class="page__grid">
+          <div class="card highlight">
+            <h2 id="helper-fastfood-title" class="visually-hidden">Fastfood avadanlıqları</h2>
+            <p class="visually-hidden">Sürətli hazırlıq cihazları.</p>
+            <div class="item-grid">
+              <div class="item-card">Qril</div>
+              <div class="item-card">Fritöz</div>
+              <div class="item-card">Hot‑dog aparatı</div>
+              <div class="item-card">Sandviç aparatı</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="helper-dough" aria-labelledby="helper-dough-title" data-eyebrow="Ətraflı" data-title="Xəmir hazırlama avadanlıqları servisi" data-back="helper">
+        <div class="page__grid">
+          <div class="card highlight">
+            <h2 id="helper-dough-title" class="visually-hidden">Xəmir hazırlama avadanlıqları</h2>
+            <p class="visually-hidden">Xəmir yoğurma və açma cihazları.</p>
+            <div class="item-grid">
+              <div class="item-card">Xəmir yoğuran</div>
+              <div class="item-card">Rulon açan</div>
+              <div class="item-card">Mikser (planetar)</div>
+              <div class="item-card">Varyator</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="service-line" aria-labelledby="service-line-title" data-eyebrow="Ətraflı" data-title="Servis xətti servisi" data-back="projects">
+        <div class="page__grid">
+          <div class="card highlight">
+            <h2 id="service-line-title" class="visually-hidden">Servis xətti</h2>
+            <p class="visually-hidden">Quraşdırma, diaqnostika və təmir xidmətləri.</p>
+            <div class="service-items">
+              <span>Quraşdırma</span>
+              <span>Diaqnostika</span>
+              <span>Təmir</span>
+              <span>Ehtiyat hissə</span>
+              <span>Profilaktika</span>
+              <span>Zəmanətli servis</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="laundry" aria-labelledby="laundry-title" data-eyebrow="Ətraflı" data-title="Yuma və qabyuyan maşınlar servisi" data-back="projects">
+        <div class="page__grid">
+          <div class="card highlight">
+            <h2 id="laundry-title" class="visually-hidden">Yuma və qabyuyan maşınlar servisi</h2>
+            <p class="visually-hidden">Paltaryuyan və qabyuyan sistemlərin diaqnostika və təmiri.</p>
+            <div class="service-items">
+              <span>Ön yükləməli</span>
+              <span>Yuxarı yükləməli</span>
+              <span>İnvertor</span>
+              <span>Sənaye tipli</span>
+              <span>Qurutmalı</span>
+              <span>İnteqrasiya</span>
+              <span>Qabyuyan standart</span>
+              <span>Qabyuyan kompakt</span>
+              <span>Qabyuyan yarım ölçü</span>
+              <span>Qabyuyan peşəkar</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="cookers" aria-labelledby="cookers-title" data-eyebrow="Ətraflı" data-title="Bişiricilər servisi" data-back="projects">
+        <div class="page__grid">
+          <div class="card highlight">
+            <h2 id="cookers-title" class="visually-hidden">Bişiricilər servisi</h2>
+            <p class="visually-hidden">Kiçik mətbəx bişirmə cihazları üçün servis.</p>
+            <div class="service-items">
+              <span>Airfryer</span>
+              <span>Multibişirici</span>
+              <span>Qril</span>
+              <span>Sandviç aparatı</span>
+              <span>Toster</span>
+              <span>Fritöz</span>
+            </div>
           </div>
         </div>
       </section>
