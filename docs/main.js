@@ -9,7 +9,11 @@ const pageBack = document.querySelector('#page-back');
 const navGroups = Array.from(document.querySelectorAll('.nav__group'));
 const navSubgroups = Array.from(document.querySelectorAll('.nav__subgroup'));
 
-const showPage = (id) => {
+const normalizePageId = (id) => {
+  return pages.some((page) => page.id === id) ? id : null;
+};
+
+const applyPage = (id) => {
   pages.forEach((page) => {
     page.classList.toggle('is-visible', page.id === id);
   });
@@ -31,6 +35,25 @@ const showPage = (id) => {
       pageBack.setAttribute('aria-hidden', 'true');
       pageBack.classList.remove('is-visible');
     }
+  }
+};
+
+const showPage = (id) => {
+  const safeId = normalizePageId(id) || links[0]?.dataset.page;
+  if (!safeId) {
+    return;
+  }
+  applyPage(safeId);
+  const newHash = `#${safeId}`;
+  if (window.location.hash !== newHash) {
+    history.pushState({ page: safeId }, '', newHash);
+  }
+};
+
+const showPageFromHistory = (id) => {
+  const safeId = normalizePageId(id);
+  if (safeId) {
+    applyPage(safeId);
   }
 };
 
@@ -106,7 +129,26 @@ navSubgroups.forEach((subgroup) => {
   });
 });
 
+window.addEventListener('popstate', (event) => {
+  const target = event.state?.page || window.location.hash.replace('#', '');
+  if (target) {
+    showPageFromHistory(target);
+  }
+});
+
+window.addEventListener('hashchange', () => {
+  const target = window.location.hash.replace('#', '');
+  if (target) {
+    showPageFromHistory(target);
+  }
+});
+
 const defaultPage = links[0]?.dataset.page;
 if (defaultPage) {
-  showPage(defaultPage);
+  const initial = window.location.hash.replace('#', '');
+  if (initial) {
+    showPageFromHistory(initial);
+  } else {
+    showPage(defaultPage);
+  }
 }
