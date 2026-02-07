@@ -64,12 +64,24 @@ body{
 }
 .menu-toggle{
   display:none;
+  width:44px;
+  height:44px;
+  padding:0;
   border:1px solid var(--line);
   background:var(--card);
-  padding:10px 14px;
   border-radius:12px;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:4px;
   font-family:"Space Grotesk", "Trebuchet MS", sans-serif;
   cursor:pointer;
+}
+.menu-toggle__line{
+  width:18px;
+  height:2px;
+  border-radius:2px;
+  background:var(--ink);
 }
 .nav__link{
   border:1px solid transparent;
@@ -217,6 +229,10 @@ body{
 }
 .contact__value{
   font-size:13px;
+}
+.contact-mobile{
+  display:none;
+  margin-top:22px;
 }
 .status{
   display:flex;
@@ -817,8 +833,15 @@ body{
 
 @media (max-width:900px){
   .app{ grid-template-columns:1fr; }
-  .sidebar{ position:sticky; top:0; z-index:10; flex-direction:column; align-items:stretch; }
-  .menu-toggle{ display:inline-flex; align-items:center; justify-content:center; }
+  .sidebar{ position:sticky; top:0; z-index:10; flex-direction:column; align-items:stretch; padding:20px 16px; }
+  .brand{ padding-right:56px; }
+  .menu-toggle{
+    display:inline-flex;
+    position:absolute;
+    right:16px;
+    top:16px;
+    z-index:15;
+  }
   .nav{ display:none; flex-direction:column; }
   .sidebar.is-open .nav{ display:flex; }
   .nav__sub,
@@ -838,6 +861,7 @@ body{
   .nav__sub::before,
   .nav__subsub::before{ display:none; }
   .sidebar__footer{ display:none; }
+  .contact-mobile{ display:block; }
   .content{ padding:24px; }
   .topbar{ flex-direction:column; align-items:flex-start; }
   .service-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
