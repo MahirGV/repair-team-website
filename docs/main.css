@@ -24,7 +24,7 @@ body{
 
 .app{
   display:grid;
-  grid-template-columns:346px 1fr;
+  grid-template-columns:348px 1fr;
   min-height:100vh;
 }
 
