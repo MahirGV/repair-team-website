@@ -229,7 +229,12 @@ body{
 }
 .contact__value{
   font-size:13px;
+  color:var(--ink);
+  text-decoration:none;
 }
+.contact__value:visited{ color:var(--ink); }
+.contact__value:hover{ color:var(--ink); text-decoration:none; }
+.contact__value:active{ color:var(--ink); }
 .contact-mobile{
   display:none;
   margin-top:22px;
